@@ -1,0 +1,3 @@
+[submodule "api/google-cloud-api"]
+	path = api/google-cloud-api
+	url = git@github.com:holywag/google-cloud-api.git
