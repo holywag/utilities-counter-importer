@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import re
-from datetime import datetime, date, timedelta
+from datetime import datetime, date
 import google_cloud.oauth as oauth
 import google_cloud.sheets as gsheets
 
@@ -71,7 +71,6 @@ class RowRentFormatter(RowFormatter):
             period_end = period_start.replace(month=period_start.month+1, day=self.RENT_END)
         else:
             period_end = period_start.replace(year=period_start.year+1, month=1, day=self.RENT_END)
-        ex_rate = format_args['tariff'] or last_row[3]
         ex_rate_link = self.EX_RATE_LINK.format(
             date_arg=date_arg.strftime('%d-%m-%Y'),
             ex_rate=format_args['tariff'] or self.EX_RATE_LINK_RE.match(last_row[3]).groups()[0]
