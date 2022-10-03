@@ -20,4 +20,5 @@ def main():
     args = parser.parse_args()
 
     importer = UtilitiesCounterImporter(args.credentials, args.spreadsheet_id)
-    importer.add_record(args.service_name, args.date or date.today(), args.counter_value, args.tariff, args.tariff_preferential)    
+    result = importer.add_record(args.service_name, args.date or date.today(), args.counter_value, args.tariff, args.tariff_preferential)
+    print(result)

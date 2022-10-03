@@ -122,6 +122,5 @@ class UtilitiesCounterImporter:
         formatter = UtilitiesCounterImporter.__get_row_formatter(service_name)
         range_values = self.sheets_api.get_range(
             self.file_id, formatter.make_range_ref(''), gsheets.ValueRenderOption.FORMULA)
-        result = self.sheets_api.update_range(
+        return self.sheets_api.update_range(
             self.file_id, *formatter.make_range(range_values, **format_args), gsheets.ValueInputOption.USER_ENTERED, include_values_in_response=True)
-        print(result)
